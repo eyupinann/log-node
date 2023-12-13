@@ -10,6 +10,11 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
+app.get('/logs.txt', (req, res) => {
+    res.sendFile(__dirname + '/logs.txt')
+
+});
+
 app.post('/log', (req, res) => {
     const { timestamp,userAgent,ip } = req.body;
     console.log('Log request:', req.body);
